@@ -1,0 +1,422 @@
+body {
+  background:#f5e6d3;
+  color: #3b2a1a;
+  font-family:Arial,sans-serif;
+  margin: 0;
+  padding:0;
+  overflow-x: hidden;
+  box-shadow: insent 0 0 50px rgba(0,0,0,0,3);
+}
+
+button:hover, .linkedin-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #3b82f6;
+}
+
+
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container,
+section,
+#home {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+section {
+  width:100%;
+  padding: 40px 15px;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 30px 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+h1, h2, p{
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+.card {
+  width:100%;
+  background: #fffaf3; 
+  border: 2px solid #a8741a;
+  margin:30px auto;
+  border-radius:15px;
+  padding:20px;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(139,94,0,0.15);
+}
+
+.card h3 {
+  color: #8b5e00; 
+}
+
+.card p {
+  color: #555; 
+  animation:fadeSlide 1s ease forwards;
+}
+
+
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+form {
+width:100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body > * {
+  width: 100%;
+}
+button {
+  padding: 10px 20px;
+  border: 2px solid #8b5e00;
+  background: transparent;
+  color: #8b5e00;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+}
+button:hover {
+  background: #8b5e00;
+  color: white;
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color:#8b5e00;
+  border: 2px;;
+}
+
+.profile-pic {
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: black;
+  object-position:top;
+  display: block;
+  margin: 20px auto;
+  border: 3px solid #c8a97e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+#home {
+  background: transparent;
+  color:#f5e6d3;
+  text-align:center;
+  padding:60px 20px
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-actions button,
+.linkedin-btn {
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+nav {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  color: #333;
+  margin:0 10px;
+  text-decoration: none;
+  font-weight:500;
+  transition: 0.3s;
+  position:relative;
+}
+
+nav a:hover {
+  color: #06b6d4;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width:100%;
+  max-width: 100%;          
+  padding: 10px;  
+  margin:auto;    
+  overflow:visible; 
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+      
+ }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  section {
+  background: linear-gradient(to right, #e6d3b3, #f5e6cc);
+  color: #333;
+}
+
+.profile-pic {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+}
+.cv-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #8b5e00;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition:0.3s;
+}
+
+.cv-btn:hover {
+  background:#a8741a;
+  
+  
+}
+
+.social-icons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.social-icons a {
+  width:45px;
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  margin: 10px;
+  border-radius: 50%;
+  
+  background: transparent;              
+  border: 2px solid #8b5e00;            
+  color: #8b5e00;                        
+
+  text-align: center;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+
+.social-icons a:hover {
+  background: #8b5e00;   
+  color: white;
+  transform: translateY(-5px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+
+
+
+
+
+.projects-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  width: 300px;
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  
+}
+
+.project img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.project img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.project{
+  overflow:hidden;
+}
+.skill-box i {
+  font-size: 30px;
+  color: #00f7ff;
+  margin-bottom: 10px;
+}
+
+.skill-box {
+  background: #1e293b;   /* lighter than background */
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+
+  transition: 0.3s ease;
+
+  
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.skill-box h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.skill-box p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.skill-box:hover {
+  transform: translateY(-10px);
+  border: 1px solid #00f7ff;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+}
+.skill-box.active {
+  border: 2px solid #0ef;
+
+  box-shadow:
+    0 0 10px #0ef,
+    0 0 25px #0ef,
+    0 0 50px rgba(0, 255, 255, 0.5);
+}
+
+
+h1 {
+  font-size: 36px;
+}
+
+.highlight {
+  color: #8b5e00; 
+  font-weight: bold;
+}
+.home-container {
+  display: flex;
+  flex-wrap:wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+}
+.card img {
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#experience .card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+#experience .card:hover {
+  transform: translateY(-10px);
+}
+.contact-box {
+  border: 2px solid #8b5e00;         
+  border-radius: 15px;             
+  padding: 30px;                   
+  max-width: 700px;               
+  margin: 40px auto;               
+  background: white;  
+  width:80%;            
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+}
