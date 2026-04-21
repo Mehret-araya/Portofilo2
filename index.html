@@ -16,8 +16,10 @@
 
 <nav>
   <h2><span style="color:#a8741a">Mehret</span></h2>
-
-  <ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
     <li><a href="#" onclick="scrollToSection('home')">Home</a></li>
     <li><a href="#" onclick="scrollToSection('about')">About</a></li>
     <li><a href="#" onclick="scrollToSection('skills')">Skills</a></li>
@@ -30,41 +32,31 @@
 
 <section id="home">
   <h1>Hi, I'm Mehret Araya</h1>
-  <p>Aspiring Software Engineer | Frontend Developer | AI Enthusiast</p>
+  <p class="animated-subtitle">Aspiring Software Engineer | Frontend Developer | AI Enthusiast</p>
   <img src="mom.jpg" alt="My profile picture" class="profile-pic">
   <div class="buttons">
+    <button onclick="scrollToSection('projects')">View Work</button>
+    <button onclick="scrollToSection('contact')">Contact Me</button>
+  </div>
 
+  <a href="cv.pdf" download="Mehret_Araya_CV.pdf" class="cv-btn">Download CV</a>
 
+  <div class="social-icons">
+    <a href="https://github.com/mehret-araya" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
 
-<div class="buttons">
-  <button onclick="scrollToSection('projects')">View Work</button>
-  <button onclick="scrollToSection('contact')">Contact Me</button>
-</div>
+    <a href="https://www.linkedin.com/in/mehret-araya" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
 
-<a href="cv.pdf" download="Mehret_Araya_CV.pdf" class="cv-btn">Download CV</a>
-
-
-<div class="social-icons">
-  <a href="https://github.com/mehret-araya" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
-
-  <a href="https://www.linkedin.com/in/mehret-araya" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-
-  <a href="https://www.facebook.com/mihret.araya" target="_blank">
-    <i class="fab fa-facebook"></i>
-  
-<a href="https://www.instagram.com/mehret.ar/" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-
-</div>
-
-
-
-
+    <a href="https://www.facebook.com/mihret.araya" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
+    
+    <a href="https://www.instagram.com/mehret.ar/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
 </section>
 

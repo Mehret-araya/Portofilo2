@@ -71,8 +71,12 @@ h1, h2, p{
   margin:30px auto;
   border-radius:15px;
   padding:20px;
-  transition:0.3s;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow:0 8px 20px rgba(139,94,0,0.15);
+}
+
+.card:not(.animate) {
+  opacity: 0;
 }
 
 .card h3 {
@@ -80,16 +84,12 @@ h1, h2, p{
 }
 
 .card p {
-  color: #555; 
-  animation:fadeSlide 1s ease forwards;
+  color: #555;
 }
 
-
-
-
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(139,94,0,0.25);
 }
 
 input, textarea {
@@ -186,6 +186,8 @@ nav {
   padding: 20px 50px;
   background: rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 100;
 }
 
 nav a {
@@ -212,21 +214,240 @@ nav a:hover {
   overflow:visible; 
 }
 
-@keyframes fadeSlide {
-  from {
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.5) rotate(-5deg); }
+  70%  { transform: scale(1.05) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes slideInFromTop {
+  from { opacity: 0; transform: translateY(-100px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.3) rotate(-10deg); }
+  50%  { opacity: 1; transform: scale(1.1) rotate(5deg); }
+  70%  { transform: scale(0.95) rotate(-2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(168, 116, 26, 0.5); }
+  50%      { box-shadow: 0 0 20px rgba(168, 116, 26, 0.8), 0 0 30px rgba(168, 116, 26, 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: #8b5e00; }
+}
+
+section.animate {
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.card.animate {
+  animation: bounceIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.profile-pic.animate {
+  animation: popIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+h1.animate {
+  animation: slideInFromTop 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+h2.animate {
+  animation: fadeRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cv-btn.animate, .social-icons.animate, .buttons.animate {
+  animation: fadeUp 0.8s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Enhanced hover animations */
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(139,94,0,0.3);
+  animation: glow 2s infinite alternate;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  animation: float 3s ease-in-out infinite;
+}
+
+.cv-btn:hover {
+  transform: scale(1.1);
+  animation: pulse 1.5s infinite;
+}
+
+.social-icons a:hover {
+  background: #8b5e00;
+  color: white;
+  transform: translateY(-8px) scale(1.2);
+  animation: pulse 0.6s ease;
+}
+
+button:hover {
+  background: #8b5e00;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(139, 94, 0, 0.4);
+  animation: glow 1s ease-in-out;
+}
+
+/* Navigation animations */
+nav a:hover {
+  color: #8b5e00;
+  transform: translateY(-2px);
+  text-shadow: 0 2px 8px rgba(139, 94, 0, 0.3);
+}
+
+/* Mobile menu slide animation */
+@media (max-width: 768px) {
+  nav ul {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  nav ul.open {
+    transform: translateY(0);
+    opacity: 1;
+    animation: slideInFromTop 0.4s ease-out;
+  }
+
+  nav ul li a:hover {
+    background: rgba(168, 116, 26, 0.15);
+    color: #8b5e00;
+    transform: translateX(10px) scale(1.05);
+  }
+}
+
+/* Animated subtitle - keeping original content with animation */
+.animated-subtitle {
+  font-size: 20px;
+  color: #8b5e00;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInFade 1.2s ease-out 0.5s forwards;
+  background: linear-gradient(45deg, #8b5e00, #a8741a, #c8a97e);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideInFade 1.2s ease-out 0.5s forwards, gradientShift 3s ease infinite;
+}
+
+@keyframes slideInFade {
+  0% {
     opacity: 0;
     transform: translateY(30px);
-      
- }
-  to {
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-  section {
-  background: linear-gradient(to right, #e6d3b3, #f5e6cc);
-  color: #333;
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .animated-subtitle {
+    font-size: 16px;
+  }
+}
+.grid .card:nth-child(1) { animation-delay: 0.1s; }
+.grid .card:nth-child(2) { animation-delay: 0.2s; }
+.grid .card:nth-child(3) { animation-delay: 0.3s; }
+.grid .card:nth-child(4) { animation-delay: 0.4s; }
+.grid .card:nth-child(5) { animation-delay: 0.5s; }
+.grid .card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Typewriter effect for main heading */
+#home h1 {
+  overflow: hidden;
+  border-right: 3px solid #8b5e00;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typewriter 3s steps(20) 1s both, blink 1s infinite;
+}
+
+/* Floating animation for profile picture */
+.profile-pic {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient text effect */
+#home h1 {
+  background: linear-gradient(45deg, #8b5e00, #a8741a, #c8a97e);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite, typewriter 3s steps(20) 1s both;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Remove transition from animations to avoid conflicts */
+section.animate, .card.animate, .profile-pic.animate, h1.animate, h2.animate {
+  transition: none;
 }
 
 .profile-pic {
@@ -295,6 +516,112 @@ nav ul {
   display: flex;
   gap: 20px;
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0;
+  z-index: 1002;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #8b5e00;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(245, 230, 211, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    background: rgba(245, 230, 211, 0.98);
+    padding: 15px 0;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    z-index: 1001;
+    border: 1px solid #a8741a;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    color: #3b2a1a;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(168, 116, 26, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  nav ul li a:hover {
+    background: rgba(168, 116, 26, 0.1);
+    color: #8b5e00;
+    transform: translateX(5px);
+  }
+
+  /* Add padding to body to account for fixed nav */
+  body {
+    padding-top: 80px;
+  }
+
+  section {
+    scroll-margin-top: 80px;
+  }
 }
 
 
@@ -411,12 +738,36 @@ h1 {
   transform: translateY(-10px);
 }
 .contact-box {
-  border: 2px solid #8b5e00;         
-  border-radius: 15px;             
-  padding: 30px;                   
-  max-width: 700px;               
-  margin: 40px auto;               
-  background: white;  
-  width:80%;            
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+  border: 2px solid #8b5e00;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  width: 80%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #c8a97e;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .contact-box {
+    width: 95%;
+    padding: 20px 15px;
+  }
+
+  #contact input,
+  #contact textarea {
+    max-width: 100%;
+  }
 }
